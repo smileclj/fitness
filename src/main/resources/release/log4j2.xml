@@ -26,10 +26,10 @@
 	
     <Loggers>
      	<!-- 3rdparty Loggers -->
-     	<Logger name="com.dasx.fitness" level="DEBUG" />
-        <Logger name="org.mybatis" level="DEBUG" />
+     	<Logger name="com.dasx.fitness" level="ERROR" />
+        <Logger name="org.mybatis" level="ERROR" />
         
-        <Root level="DEBUG">
+        <Root level="ERROR">
             <AppenderRef ref="CONSOLE"/>
             <AppenderRef ref="RollingFile"/>
         </Root>
