@@ -4,7 +4,9 @@ public enum ErrorCode {
 	SUCCESS(0, "成功"), 
 	ERROR_PARAM(1, "参数错误"),
 	ERROR_REPEAT(2, "重复操作"), 
-	ACTION_NOT_EXIST(3, "接口不存在"), 
+	ACTION_NOT_EXIST(3, "接口不存在"),
+	ERROR_LOGIN(4,"登录失败,用户名或密码错误"),
+	ERROR_DATA(5,"数据有误，请稍后再试"),
 	UNKNOW(-1, "系统异常");
 
 	private ErrorCode(int code, String msg) {

@@ -1,7 +1,6 @@
 package com.dasx.fitness.entity;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class CourseExample {
@@ -375,193 +374,63 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeIsNull() {
-            addCriterion("start_time is null");
+        public Criteria andCoachIdIsNull() {
+            addCriterion("coach_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeIsNotNull() {
-            addCriterion("start_time is not null");
+        public Criteria andCoachIdIsNotNull() {
+            addCriterion("coach_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeEqualTo(Date value) {
-            addCriterion("start_time =", value, "startTime");
+        public Criteria andCoachIdEqualTo(Integer value) {
+            addCriterion("coach_id =", value, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeNotEqualTo(Date value) {
-            addCriterion("start_time <>", value, "startTime");
+        public Criteria andCoachIdNotEqualTo(Integer value) {
+            addCriterion("coach_id <>", value, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeGreaterThan(Date value) {
-            addCriterion("start_time >", value, "startTime");
+        public Criteria andCoachIdGreaterThan(Integer value) {
+            addCriterion("coach_id >", value, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("start_time >=", value, "startTime");
+        public Criteria andCoachIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("coach_id >=", value, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeLessThan(Date value) {
-            addCriterion("start_time <", value, "startTime");
+        public Criteria andCoachIdLessThan(Integer value) {
+            addCriterion("coach_id <", value, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeLessThanOrEqualTo(Date value) {
-            addCriterion("start_time <=", value, "startTime");
+        public Criteria andCoachIdLessThanOrEqualTo(Integer value) {
+            addCriterion("coach_id <=", value, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeIn(List<Date> values) {
-            addCriterion("start_time in", values, "startTime");
+        public Criteria andCoachIdIn(List<Integer> values) {
+            addCriterion("coach_id in", values, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeNotIn(List<Date> values) {
-            addCriterion("start_time not in", values, "startTime");
+        public Criteria andCoachIdNotIn(List<Integer> values) {
+            addCriterion("coach_id not in", values, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeBetween(Date value1, Date value2) {
-            addCriterion("start_time between", value1, value2, "startTime");
+        public Criteria andCoachIdBetween(Integer value1, Integer value2) {
+            addCriterion("coach_id between", value1, value2, "coachId");
             return (Criteria) this;
         }
 
-        public Criteria andStartTimeNotBetween(Date value1, Date value2) {
-            addCriterion("start_time not between", value1, value2, "startTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeIsNull() {
-            addCriterion("end_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeIsNotNull() {
-            addCriterion("end_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeEqualTo(Date value) {
-            addCriterion("end_time =", value, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeNotEqualTo(Date value) {
-            addCriterion("end_time <>", value, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeGreaterThan(Date value) {
-            addCriterion("end_time >", value, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("end_time >=", value, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeLessThan(Date value) {
-            addCriterion("end_time <", value, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeLessThanOrEqualTo(Date value) {
-            addCriterion("end_time <=", value, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeIn(List<Date> values) {
-            addCriterion("end_time in", values, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeNotIn(List<Date> values) {
-            addCriterion("end_time not in", values, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeBetween(Date value1, Date value2) {
-            addCriterion("end_time between", value1, value2, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andEndTimeNotBetween(Date value1, Date value2) {
-            addCriterion("end_time not between", value1, value2, "endTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameIsNull() {
-            addCriterion("coach_name is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameIsNotNull() {
-            addCriterion("coach_name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameEqualTo(String value) {
-            addCriterion("coach_name =", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameNotEqualTo(String value) {
-            addCriterion("coach_name <>", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameGreaterThan(String value) {
-            addCriterion("coach_name >", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameGreaterThanOrEqualTo(String value) {
-            addCriterion("coach_name >=", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameLessThan(String value) {
-            addCriterion("coach_name <", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameLessThanOrEqualTo(String value) {
-            addCriterion("coach_name <=", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameLike(String value) {
-            addCriterion("coach_name like", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameNotLike(String value) {
-            addCriterion("coach_name not like", value, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameIn(List<String> values) {
-            addCriterion("coach_name in", values, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameNotIn(List<String> values) {
-            addCriterion("coach_name not in", values, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameBetween(String value1, String value2) {
-            addCriterion("coach_name between", value1, value2, "coachName");
-            return (Criteria) this;
-        }
-
-        public Criteria andCoachNameNotBetween(String value1, String value2) {
-            addCriterion("coach_name not between", value1, value2, "coachName");
+        public Criteria andCoachIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("coach_id not between", value1, value2, "coachId");
             return (Criteria) this;
         }
 
@@ -902,6 +771,66 @@ public class CourseExample {
 
         public Criteria andRemarkNotBetween(String value1, String value2) {
             addCriterion("remark not between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteIsNull() {
+            addCriterion("is_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteIsNotNull() {
+            addCriterion("is_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteEqualTo(Byte value) {
+            addCriterion("is_delete =", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotEqualTo(Byte value) {
+            addCriterion("is_delete <>", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteGreaterThan(Byte value) {
+            addCriterion("is_delete >", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteGreaterThanOrEqualTo(Byte value) {
+            addCriterion("is_delete >=", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteLessThan(Byte value) {
+            addCriterion("is_delete <", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteLessThanOrEqualTo(Byte value) {
+            addCriterion("is_delete <=", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteIn(List<Byte> values) {
+            addCriterion("is_delete in", values, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotIn(List<Byte> values) {
+            addCriterion("is_delete not in", values, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteBetween(Byte value1, Byte value2) {
+            addCriterion("is_delete between", value1, value2, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotBetween(Byte value1, Byte value2) {
+            addCriterion("is_delete not between", value1, value2, "isDelete");
             return (Criteria) this;
         }
     }

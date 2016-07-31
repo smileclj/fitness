@@ -29,6 +29,8 @@ public class Store {
 
     private Date updateTime;
 
+    private Byte isDelete;
+
     public Integer getStoreId() {
         return storeId;
     }
@@ -131,5 +133,13 @@ public class Store {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 }

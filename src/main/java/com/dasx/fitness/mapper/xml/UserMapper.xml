@@ -12,8 +12,17 @@
     <result column="province" property="province" jdbcType="VARCHAR" />
     <result column="country" property="country" jdbcType="VARCHAR" />
     <result column="icon" property="icon" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="state" property="state" jdbcType="TINYINT" />
+    <result column="regular_store_id" property="regularStoreId" jdbcType="INTEGER" />
+    <result column="common_time_start" property="commonTimeStart" jdbcType="TIMESTAMP" />
+    <result column="common_time_end" property="commonTimeEnd" jdbcType="TIMESTAMP" />
+    <result column="common_num" property="commonNum" jdbcType="INTEGER" />
+    <result column="crossfit_time_start" property="crossfitTimeStart" jdbcType="TIMESTAMP" />
+    <result column="crossfit_time_end" property="crossfitTimeEnd" jdbcType="TIMESTAMP" />
+    <result column="crossfit_num" property="crossfitNum" jdbcType="INTEGER" />
     <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -75,7 +84,8 @@
   </sql>
   <sql id="Base_Column_List" >
     user_id, open_id, union_id, user_name, sex, phone, city, province, country, icon, 
-    create_time, login_time
+    type, state, regular_store_id, common_time_start, common_time_end, common_num, crossfit_time_start, 
+    crossfit_time_end, crossfit_num, login_time, create_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dasx.fitness.entity.UserExample" >
     select
@@ -116,12 +126,18 @@
     </selectKey>
     insert into user (open_id, union_id, user_name, 
       sex, phone, city, province, 
-      country, icon, create_time, 
-      login_time)
+      country, icon, type, 
+      state, regular_store_id, common_time_start, 
+      common_time_end, common_num, crossfit_time_start, 
+      crossfit_time_end, crossfit_num, login_time, 
+      create_time)
     values (#{openId,jdbcType=VARCHAR}, #{unionId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
       #{sex,jdbcType=TINYINT}, #{phone,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
-      #{country,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{loginTime,jdbcType=TIMESTAMP})
+      #{country,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{state,jdbcType=TINYINT}, #{regularStoreId,jdbcType=INTEGER}, #{commonTimeStart,jdbcType=TIMESTAMP}, 
+      #{commonTimeEnd,jdbcType=TIMESTAMP}, #{commonNum,jdbcType=INTEGER}, #{crossfitTimeStart,jdbcType=TIMESTAMP}, 
+      #{crossfitTimeEnd,jdbcType=TIMESTAMP}, #{crossfitNum,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.dasx.fitness.entity.User" >
     <selectKey resultType="java.lang.Integer" keyProperty="userId" order="AFTER" >
@@ -156,11 +172,38 @@
       <if test="icon != null" >
         icon,
       </if>
-      <if test="createTime != null" >
-        create_time,
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="regularStoreId != null" >
+        regular_store_id,
+      </if>
+      <if test="commonTimeStart != null" >
+        common_time_start,
+      </if>
+      <if test="commonTimeEnd != null" >
+        common_time_end,
+      </if>
+      <if test="commonNum != null" >
+        common_num,
+      </if>
+      <if test="crossfitTimeStart != null" >
+        crossfit_time_start,
+      </if>
+      <if test="crossfitTimeEnd != null" >
+        crossfit_time_end,
+      </if>
+      <if test="crossfitNum != null" >
+        crossfit_num,
       </if>
       <if test="loginTime != null" >
         login_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -191,11 +234,38 @@
       <if test="icon != null" >
         #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
+      <if test="type != null" >
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=TINYINT},
+      </if>
+      <if test="regularStoreId != null" >
+        #{regularStoreId,jdbcType=INTEGER},
+      </if>
+      <if test="commonTimeStart != null" >
+        #{commonTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commonTimeEnd != null" >
+        #{commonTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commonNum != null" >
+        #{commonNum,jdbcType=INTEGER},
+      </if>
+      <if test="crossfitTimeStart != null" >
+        #{crossfitTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crossfitTimeEnd != null" >
+        #{crossfitTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crossfitNum != null" >
+        #{crossfitNum,jdbcType=INTEGER},
       </if>
       <if test="loginTime != null" >
         #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -238,11 +308,38 @@
       <if test="record.icon != null" >
         icon = #{record.icon,jdbcType=VARCHAR},
       </if>
-      <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=TINYINT},
+      </if>
+      <if test="record.regularStoreId != null" >
+        regular_store_id = #{record.regularStoreId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commonTimeStart != null" >
+        common_time_start = #{record.commonTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.commonTimeEnd != null" >
+        common_time_end = #{record.commonTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.commonNum != null" >
+        common_num = #{record.commonNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.crossfitTimeStart != null" >
+        crossfit_time_start = #{record.crossfitTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.crossfitTimeEnd != null" >
+        crossfit_time_end = #{record.crossfitTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.crossfitNum != null" >
+        crossfit_num = #{record.crossfitNum,jdbcType=INTEGER},
       </if>
       <if test="record.loginTime != null" >
         login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -261,8 +358,17 @@
       province = #{record.province,jdbcType=VARCHAR},
       country = #{record.country,jdbcType=VARCHAR},
       icon = #{record.icon,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      login_time = #{record.loginTime,jdbcType=TIMESTAMP}
+      type = #{record.type,jdbcType=TINYINT},
+      state = #{record.state,jdbcType=TINYINT},
+      regular_store_id = #{record.regularStoreId,jdbcType=INTEGER},
+      common_time_start = #{record.commonTimeStart,jdbcType=TIMESTAMP},
+      common_time_end = #{record.commonTimeEnd,jdbcType=TIMESTAMP},
+      common_num = #{record.commonNum,jdbcType=INTEGER},
+      crossfit_time_start = #{record.crossfitTimeStart,jdbcType=TIMESTAMP},
+      crossfit_time_end = #{record.crossfitTimeEnd,jdbcType=TIMESTAMP},
+      crossfit_num = #{record.crossfitNum,jdbcType=INTEGER},
+      login_time = #{record.loginTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -297,11 +403,38 @@
       <if test="icon != null" >
         icon = #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+      <if test="type != null" >
+        type = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=TINYINT},
+      </if>
+      <if test="regularStoreId != null" >
+        regular_store_id = #{regularStoreId,jdbcType=INTEGER},
+      </if>
+      <if test="commonTimeStart != null" >
+        common_time_start = #{commonTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commonTimeEnd != null" >
+        common_time_end = #{commonTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commonNum != null" >
+        common_num = #{commonNum,jdbcType=INTEGER},
+      </if>
+      <if test="crossfitTimeStart != null" >
+        crossfit_time_start = #{crossfitTimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crossfitTimeEnd != null" >
+        crossfit_time_end = #{crossfitTimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crossfitNum != null" >
+        crossfit_num = #{crossfitNum,jdbcType=INTEGER},
       </if>
       <if test="loginTime != null" >
         login_time = #{loginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
@@ -317,8 +450,17 @@
       province = #{province,jdbcType=VARCHAR},
       country = #{country,jdbcType=VARCHAR},
       icon = #{icon,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      login_time = #{loginTime,jdbcType=TIMESTAMP}
+      type = #{type,jdbcType=TINYINT},
+      state = #{state,jdbcType=TINYINT},
+      regular_store_id = #{regularStoreId,jdbcType=INTEGER},
+      common_time_start = #{commonTimeStart,jdbcType=TIMESTAMP},
+      common_time_end = #{commonTimeEnd,jdbcType=TIMESTAMP},
+      common_num = #{commonNum,jdbcType=INTEGER},
+      crossfit_time_start = #{crossfitTimeStart,jdbcType=TIMESTAMP},
+      crossfit_time_end = #{crossfitTimeEnd,jdbcType=TIMESTAMP},
+      crossfit_num = #{crossfitNum,jdbcType=INTEGER},
+      login_time = #{loginTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
 </mapper>

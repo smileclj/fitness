@@ -15,6 +15,7 @@
     <result column="city" property="city" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -76,7 +77,7 @@
   </sql>
   <sql id="Base_Column_List" >
     store_id, store_name, lng, lat, tel_number, phone, manager, introduction, logo, province, 
-    city, create_time, update_time
+    city, create_time, update_time, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dasx.fitness.entity.StoreExample" >
     select
@@ -118,13 +119,13 @@
     insert into store (store_name, lng, lat, 
       tel_number, phone, manager, 
       introduction, logo, province, 
-      city, create_time, update_time
-      )
+      city, create_time, update_time, 
+      is_delete)
     values (#{storeName,jdbcType=VARCHAR}, #{lng,jdbcType=VARCHAR}, #{lat,jdbcType=VARCHAR}, 
       #{telNumber,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{manager,jdbcType=VARCHAR}, 
       #{introduction,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{province,jdbcType=INTEGER}, 
-      #{city,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{city,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.dasx.fitness.entity.Store" >
     <selectKey resultType="java.lang.Integer" keyProperty="storeId" order="AFTER" >
@@ -168,6 +169,9 @@
       <if test="updateTime != null" >
         update_time,
       </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="storeName != null" >
@@ -205,6 +209,9 @@
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -256,6 +263,9 @@
       <if test="record.updateTime != null" >
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -275,7 +285,8 @@
       province = #{record.province,jdbcType=INTEGER},
       city = #{record.city,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -319,6 +330,9 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
     </set>
     where store_id = #{storeId,jdbcType=INTEGER}
   </update>
@@ -335,7 +349,8 @@
       province = #{province,jdbcType=INTEGER},
       city = #{city,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where store_id = #{storeId,jdbcType=INTEGER}
   </update>
 </mapper>

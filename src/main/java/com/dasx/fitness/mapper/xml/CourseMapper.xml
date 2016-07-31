@@ -6,14 +6,13 @@
     <result column="course_name" property="courseName" jdbcType="VARCHAR" />
     <result column="store_id" property="storeId" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
-    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
-    <result column="coach_name" property="coachName" jdbcType="VARCHAR" />
+    <result column="coach_id" property="coachId" jdbcType="INTEGER" />
     <result column="classroom" property="classroom" jdbcType="VARCHAR" />
     <result column="train_level" property="trainLevel" jdbcType="INTEGER" />
     <result column="logo" property="logo" jdbcType="VARCHAR" />
     <result column="slide_pic" property="slidePic" jdbcType="VARCHAR" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,8 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    course_id, course_name, store_id, type, start_time, end_time, coach_name, classroom, 
-    train_level, logo, slide_pic, remark
+    course_id, course_name, store_id, type, coach_id, classroom, train_level, logo, slide_pic, 
+    remark, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dasx.fitness.entity.CourseExample" >
     select
@@ -115,13 +114,13 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into course (course_name, store_id, type, 
-      start_time, end_time, coach_name, 
-      classroom, train_level, logo, 
-      slide_pic, remark)
+      coach_id, classroom, train_level, 
+      logo, slide_pic, remark, 
+      is_delete)
     values (#{courseName,jdbcType=VARCHAR}, #{storeId,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, 
-      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{coachName,jdbcType=VARCHAR}, 
-      #{classroom,jdbcType=VARCHAR}, #{trainLevel,jdbcType=INTEGER}, #{logo,jdbcType=VARCHAR}, 
-      #{slidePic,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
+      #{coachId,jdbcType=INTEGER}, #{classroom,jdbcType=VARCHAR}, #{trainLevel,jdbcType=INTEGER}, 
+      #{logo,jdbcType=VARCHAR}, #{slidePic,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.dasx.fitness.entity.Course" >
     <selectKey resultType="java.lang.Integer" keyProperty="courseId" order="AFTER" >
@@ -138,14 +137,8 @@
       <if test="type != null" >
         type,
       </if>
-      <if test="startTime != null" >
-        start_time,
-      </if>
-      <if test="endTime != null" >
-        end_time,
-      </if>
-      <if test="coachName != null" >
-        coach_name,
+      <if test="coachId != null" >
+        coach_id,
       </if>
       <if test="classroom != null" >
         classroom,
@@ -162,6 +155,9 @@
       <if test="remark != null" >
         remark,
       </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="courseName != null" >
@@ -173,14 +169,8 @@
       <if test="type != null" >
         #{type,jdbcType=TINYINT},
       </if>
-      <if test="startTime != null" >
-        #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null" >
-        #{endTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="coachName != null" >
-        #{coachName,jdbcType=VARCHAR},
+      <if test="coachId != null" >
+        #{coachId,jdbcType=INTEGER},
       </if>
       <if test="classroom != null" >
         #{classroom,jdbcType=VARCHAR},
@@ -196,6 +186,9 @@
       </if>
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -220,14 +213,8 @@
       <if test="record.type != null" >
         type = #{record.type,jdbcType=TINYINT},
       </if>
-      <if test="record.startTime != null" >
-        start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.endTime != null" >
-        end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.coachName != null" >
-        coach_name = #{record.coachName,jdbcType=VARCHAR},
+      <if test="record.coachId != null" >
+        coach_id = #{record.coachId,jdbcType=INTEGER},
       </if>
       <if test="record.classroom != null" >
         classroom = #{record.classroom,jdbcType=VARCHAR},
@@ -244,6 +231,9 @@
       <if test="record.remark != null" >
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -255,14 +245,13 @@
       course_name = #{record.courseName,jdbcType=VARCHAR},
       store_id = #{record.storeId,jdbcType=INTEGER},
       type = #{record.type,jdbcType=TINYINT},
-      start_time = #{record.startTime,jdbcType=TIMESTAMP},
-      end_time = #{record.endTime,jdbcType=TIMESTAMP},
-      coach_name = #{record.coachName,jdbcType=VARCHAR},
+      coach_id = #{record.coachId,jdbcType=INTEGER},
       classroom = #{record.classroom,jdbcType=VARCHAR},
       train_level = #{record.trainLevel,jdbcType=INTEGER},
       logo = #{record.logo,jdbcType=VARCHAR},
       slide_pic = #{record.slidePic,jdbcType=VARCHAR},
-      remark = #{record.remark,jdbcType=VARCHAR}
+      remark = #{record.remark,jdbcType=VARCHAR},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -279,14 +268,8 @@
       <if test="type != null" >
         type = #{type,jdbcType=TINYINT},
       </if>
-      <if test="startTime != null" >
-        start_time = #{startTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endTime != null" >
-        end_time = #{endTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="coachName != null" >
-        coach_name = #{coachName,jdbcType=VARCHAR},
+      <if test="coachId != null" >
+        coach_id = #{coachId,jdbcType=INTEGER},
       </if>
       <if test="classroom != null" >
         classroom = #{classroom,jdbcType=VARCHAR},
@@ -303,6 +286,9 @@
       <if test="remark != null" >
         remark = #{remark,jdbcType=VARCHAR},
       </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
     </set>
     where course_id = #{courseId,jdbcType=INTEGER}
   </update>
@@ -311,14 +297,13 @@
     set course_name = #{courseName,jdbcType=VARCHAR},
       store_id = #{storeId,jdbcType=INTEGER},
       type = #{type,jdbcType=TINYINT},
-      start_time = #{startTime,jdbcType=TIMESTAMP},
-      end_time = #{endTime,jdbcType=TIMESTAMP},
-      coach_name = #{coachName,jdbcType=VARCHAR},
+      coach_id = #{coachId,jdbcType=INTEGER},
       classroom = #{classroom,jdbcType=VARCHAR},
       train_level = #{trainLevel,jdbcType=INTEGER},
       logo = #{logo,jdbcType=VARCHAR},
       slide_pic = #{slidePic,jdbcType=VARCHAR},
-      remark = #{remark,jdbcType=VARCHAR}
+      remark = #{remark,jdbcType=VARCHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where course_id = #{courseId,jdbcType=INTEGER}
   </update>
 </mapper>

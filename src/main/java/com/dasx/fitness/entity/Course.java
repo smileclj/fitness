@@ -1,7 +1,5 @@
 package com.dasx.fitness.entity;
 
-import java.util.Date;
-
 public class Course {
     private Integer courseId;
 
@@ -11,11 +9,7 @@ public class Course {
 
     private Byte type;
 
-    private Date startTime;
-
-    private Date endTime;
-
-    private String coachName;
+    private Integer coachId;
 
     private String classroom;
 
@@ -26,6 +20,8 @@ public class Course {
     private String slidePic;
 
     private String remark;
+
+    private Byte isDelete;
 
     public Integer getCourseId() {
         return courseId;
@@ -59,28 +55,12 @@ public class Course {
         this.type = type;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Integer getCoachId() {
+        return coachId;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public String getCoachName() {
-        return coachName;
-    }
-
-    public void setCoachName(String coachName) {
-        this.coachName = coachName;
+    public void setCoachId(Integer coachId) {
+        this.coachId = coachId;
     }
 
     public String getClassroom() {
@@ -121,5 +101,13 @@ public class Course {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 }

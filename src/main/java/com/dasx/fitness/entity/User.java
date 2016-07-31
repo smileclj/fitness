@@ -23,9 +23,27 @@ public class User {
 
     private String icon;
 
-    private Date createTime;
+    private Byte type;
+
+    private Byte state;
+
+    private Integer regularStoreId;
+
+    private Date commonTimeStart;
+
+    private Date commonTimeEnd;
+
+    private Integer commonNum;
+
+    private Date crossfitTimeStart;
+
+    private Date crossfitTimeEnd;
+
+    private Integer crossfitNum;
 
     private Date loginTime;
+
+    private Date createTime;
 
     public Integer getUserId() {
         return userId;
@@ -107,12 +125,76 @@ public class User {
         this.icon = icon;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Byte getType() {
+        return type;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setType(Byte type) {
+        this.type = type;
+    }
+
+    public Byte getState() {
+        return state;
+    }
+
+    public void setState(Byte state) {
+        this.state = state;
+    }
+
+    public Integer getRegularStoreId() {
+        return regularStoreId;
+    }
+
+    public void setRegularStoreId(Integer regularStoreId) {
+        this.regularStoreId = regularStoreId;
+    }
+
+    public Date getCommonTimeStart() {
+        return commonTimeStart;
+    }
+
+    public void setCommonTimeStart(Date commonTimeStart) {
+        this.commonTimeStart = commonTimeStart;
+    }
+
+    public Date getCommonTimeEnd() {
+        return commonTimeEnd;
+    }
+
+    public void setCommonTimeEnd(Date commonTimeEnd) {
+        this.commonTimeEnd = commonTimeEnd;
+    }
+
+    public Integer getCommonNum() {
+        return commonNum;
+    }
+
+    public void setCommonNum(Integer commonNum) {
+        this.commonNum = commonNum;
+    }
+
+    public Date getCrossfitTimeStart() {
+        return crossfitTimeStart;
+    }
+
+    public void setCrossfitTimeStart(Date crossfitTimeStart) {
+        this.crossfitTimeStart = crossfitTimeStart;
+    }
+
+    public Date getCrossfitTimeEnd() {
+        return crossfitTimeEnd;
+    }
+
+    public void setCrossfitTimeEnd(Date crossfitTimeEnd) {
+        this.crossfitTimeEnd = crossfitTimeEnd;
+    }
+
+    public Integer getCrossfitNum() {
+        return crossfitNum;
+    }
+
+    public void setCrossfitNum(Integer crossfitNum) {
+        this.crossfitNum = crossfitNum;
     }
 
     public Date getLoginTime() {
@@ -121,5 +203,13 @@ public class User {
 
     public void setLoginTime(Date loginTime) {
         this.loginTime = loginTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

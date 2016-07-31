@@ -805,63 +805,543 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNull() {
-            addCriterion("create_time is null");
+        public Criteria andTypeIsNull() {
+            addCriterion("type is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNotNull() {
-            addCriterion("create_time is not null");
+        public Criteria andTypeIsNotNull() {
+            addCriterion("type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterion("create_time =", value, "createTime");
+        public Criteria andTypeEqualTo(Byte value) {
+            addCriterion("type =", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterion("create_time <>", value, "createTime");
+        public Criteria andTypeNotEqualTo(Byte value) {
+            addCriterion("type <>", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterion("create_time >", value, "createTime");
+        public Criteria andTypeGreaterThan(Byte value) {
+            addCriterion("type >", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("create_time >=", value, "createTime");
+        public Criteria andTypeGreaterThanOrEqualTo(Byte value) {
+            addCriterion("type >=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThan(Date value) {
-            addCriterion("create_time <", value, "createTime");
+        public Criteria andTypeLessThan(Byte value) {
+            addCriterion("type <", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("create_time <=", value, "createTime");
+        public Criteria andTypeLessThanOrEqualTo(Byte value) {
+            addCriterion("type <=", value, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("create_time in", values, "createTime");
+        public Criteria andTypeIn(List<Byte> values) {
+            addCriterion("type in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterion("create_time not in", values, "createTime");
+        public Criteria andTypeNotIn(List<Byte> values) {
+            addCriterion("type not in", values, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterion("create_time between", value1, value2, "createTime");
+        public Criteria andTypeBetween(Byte value1, Byte value2) {
+            addCriterion("type between", value1, value2, "type");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("create_time not between", value1, value2, "createTime");
+        public Criteria andTypeNotBetween(Byte value1, Byte value2) {
+            addCriterion("type not between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNull() {
+            addCriterion("state is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIsNotNull() {
+            addCriterion("state is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateEqualTo(Byte value) {
+            addCriterion("state =", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotEqualTo(Byte value) {
+            addCriterion("state <>", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThan(Byte value) {
+            addCriterion("state >", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateGreaterThanOrEqualTo(Byte value) {
+            addCriterion("state >=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThan(Byte value) {
+            addCriterion("state <", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateLessThanOrEqualTo(Byte value) {
+            addCriterion("state <=", value, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateIn(List<Byte> values) {
+            addCriterion("state in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotIn(List<Byte> values) {
+            addCriterion("state not in", values, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateBetween(Byte value1, Byte value2) {
+            addCriterion("state between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andStateNotBetween(Byte value1, Byte value2) {
+            addCriterion("state not between", value1, value2, "state");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdIsNull() {
+            addCriterion("regular_store_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdIsNotNull() {
+            addCriterion("regular_store_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdEqualTo(Integer value) {
+            addCriterion("regular_store_id =", value, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdNotEqualTo(Integer value) {
+            addCriterion("regular_store_id <>", value, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdGreaterThan(Integer value) {
+            addCriterion("regular_store_id >", value, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("regular_store_id >=", value, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdLessThan(Integer value) {
+            addCriterion("regular_store_id <", value, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdLessThanOrEqualTo(Integer value) {
+            addCriterion("regular_store_id <=", value, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdIn(List<Integer> values) {
+            addCriterion("regular_store_id in", values, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdNotIn(List<Integer> values) {
+            addCriterion("regular_store_id not in", values, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdBetween(Integer value1, Integer value2) {
+            addCriterion("regular_store_id between", value1, value2, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andRegularStoreIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("regular_store_id not between", value1, value2, "regularStoreId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartIsNull() {
+            addCriterion("common_time_start is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartIsNotNull() {
+            addCriterion("common_time_start is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartEqualTo(Date value) {
+            addCriterion("common_time_start =", value, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartNotEqualTo(Date value) {
+            addCriterion("common_time_start <>", value, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartGreaterThan(Date value) {
+            addCriterion("common_time_start >", value, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartGreaterThanOrEqualTo(Date value) {
+            addCriterion("common_time_start >=", value, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartLessThan(Date value) {
+            addCriterion("common_time_start <", value, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartLessThanOrEqualTo(Date value) {
+            addCriterion("common_time_start <=", value, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartIn(List<Date> values) {
+            addCriterion("common_time_start in", values, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartNotIn(List<Date> values) {
+            addCriterion("common_time_start not in", values, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartBetween(Date value1, Date value2) {
+            addCriterion("common_time_start between", value1, value2, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeStartNotBetween(Date value1, Date value2) {
+            addCriterion("common_time_start not between", value1, value2, "commonTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndIsNull() {
+            addCriterion("common_time_end is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndIsNotNull() {
+            addCriterion("common_time_end is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndEqualTo(Date value) {
+            addCriterion("common_time_end =", value, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndNotEqualTo(Date value) {
+            addCriterion("common_time_end <>", value, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndGreaterThan(Date value) {
+            addCriterion("common_time_end >", value, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndGreaterThanOrEqualTo(Date value) {
+            addCriterion("common_time_end >=", value, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndLessThan(Date value) {
+            addCriterion("common_time_end <", value, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndLessThanOrEqualTo(Date value) {
+            addCriterion("common_time_end <=", value, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndIn(List<Date> values) {
+            addCriterion("common_time_end in", values, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndNotIn(List<Date> values) {
+            addCriterion("common_time_end not in", values, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndBetween(Date value1, Date value2) {
+            addCriterion("common_time_end between", value1, value2, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonTimeEndNotBetween(Date value1, Date value2) {
+            addCriterion("common_time_end not between", value1, value2, "commonTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumIsNull() {
+            addCriterion("common_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumIsNotNull() {
+            addCriterion("common_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumEqualTo(Integer value) {
+            addCriterion("common_num =", value, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumNotEqualTo(Integer value) {
+            addCriterion("common_num <>", value, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumGreaterThan(Integer value) {
+            addCriterion("common_num >", value, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("common_num >=", value, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumLessThan(Integer value) {
+            addCriterion("common_num <", value, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumLessThanOrEqualTo(Integer value) {
+            addCriterion("common_num <=", value, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumIn(List<Integer> values) {
+            addCriterion("common_num in", values, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumNotIn(List<Integer> values) {
+            addCriterion("common_num not in", values, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumBetween(Integer value1, Integer value2) {
+            addCriterion("common_num between", value1, value2, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCommonNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("common_num not between", value1, value2, "commonNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartIsNull() {
+            addCriterion("crossfit_time_start is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartIsNotNull() {
+            addCriterion("crossfit_time_start is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartEqualTo(Date value) {
+            addCriterion("crossfit_time_start =", value, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartNotEqualTo(Date value) {
+            addCriterion("crossfit_time_start <>", value, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartGreaterThan(Date value) {
+            addCriterion("crossfit_time_start >", value, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartGreaterThanOrEqualTo(Date value) {
+            addCriterion("crossfit_time_start >=", value, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartLessThan(Date value) {
+            addCriterion("crossfit_time_start <", value, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartLessThanOrEqualTo(Date value) {
+            addCriterion("crossfit_time_start <=", value, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartIn(List<Date> values) {
+            addCriterion("crossfit_time_start in", values, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartNotIn(List<Date> values) {
+            addCriterion("crossfit_time_start not in", values, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartBetween(Date value1, Date value2) {
+            addCriterion("crossfit_time_start between", value1, value2, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeStartNotBetween(Date value1, Date value2) {
+            addCriterion("crossfit_time_start not between", value1, value2, "crossfitTimeStart");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndIsNull() {
+            addCriterion("crossfit_time_end is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndIsNotNull() {
+            addCriterion("crossfit_time_end is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndEqualTo(Date value) {
+            addCriterion("crossfit_time_end =", value, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndNotEqualTo(Date value) {
+            addCriterion("crossfit_time_end <>", value, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndGreaterThan(Date value) {
+            addCriterion("crossfit_time_end >", value, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndGreaterThanOrEqualTo(Date value) {
+            addCriterion("crossfit_time_end >=", value, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndLessThan(Date value) {
+            addCriterion("crossfit_time_end <", value, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndLessThanOrEqualTo(Date value) {
+            addCriterion("crossfit_time_end <=", value, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndIn(List<Date> values) {
+            addCriterion("crossfit_time_end in", values, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndNotIn(List<Date> values) {
+            addCriterion("crossfit_time_end not in", values, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndBetween(Date value1, Date value2) {
+            addCriterion("crossfit_time_end between", value1, value2, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitTimeEndNotBetween(Date value1, Date value2) {
+            addCriterion("crossfit_time_end not between", value1, value2, "crossfitTimeEnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumIsNull() {
+            addCriterion("crossfit_num is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumIsNotNull() {
+            addCriterion("crossfit_num is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumEqualTo(Integer value) {
+            addCriterion("crossfit_num =", value, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumNotEqualTo(Integer value) {
+            addCriterion("crossfit_num <>", value, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumGreaterThan(Integer value) {
+            addCriterion("crossfit_num >", value, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("crossfit_num >=", value, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumLessThan(Integer value) {
+            addCriterion("crossfit_num <", value, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumLessThanOrEqualTo(Integer value) {
+            addCriterion("crossfit_num <=", value, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumIn(List<Integer> values) {
+            addCriterion("crossfit_num in", values, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumNotIn(List<Integer> values) {
+            addCriterion("crossfit_num not in", values, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumBetween(Integer value1, Integer value2) {
+            addCriterion("crossfit_num between", value1, value2, "crossfitNum");
+            return (Criteria) this;
+        }
+
+        public Criteria andCrossfitNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("crossfit_num not between", value1, value2, "crossfitNum");
             return (Criteria) this;
         }
 
@@ -922,6 +1402,66 @@ public class UserExample {
 
         public Criteria andLoginTimeNotBetween(Date value1, Date value2) {
             addCriterion("login_time not between", value1, value2, "loginTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("create_time is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("create_time is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
     }

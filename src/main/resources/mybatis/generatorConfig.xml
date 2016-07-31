@@ -36,5 +36,29 @@
      	<table tableName="course"  domainObjectName="Course" >
             <generatedKey column="course_id" sqlStatement="MySql" identity="true"/>
      	</table> 
+     	<table tableName="coach"  domainObjectName="Coach" >
+            <generatedKey column="coach_id" sqlStatement="MySql" identity="true"/>
+     	</table> 	
+     	<table tableName="coach_item"  domainObjectName="CoachItem" >
+            <generatedKey column="coach_item_id" sqlStatement="MySql" identity="true"/>
+     	</table> 	
+     	<table tableName="course_plan"  domainObjectName="CoursePlan" >
+            <generatedKey column="course_plan_id" sqlStatement="MySql" identity="true"/>
+     	</table> 
+     	<table tableName="course_comment"  domainObjectName="CourseComment" >
+            <generatedKey column="course_comment_id" sqlStatement="MySql" identity="true"/>
+     	</table> 
+     	<table tableName="coach_comment"  domainObjectName="CoachComment" >
+            <generatedKey column="coach_comment_id" sqlStatement="MySql" identity="true"/>
+     	</table> 
+     	<table tableName="card"  domainObjectName="Card" >
+            <generatedKey column="card_id" sqlStatement="MySql" identity="true"/>
+     	</table> 
+     	<table tableName="card_record"  domainObjectName="CardRecord" >
+            <generatedKey column="card_record_id" sqlStatement="MySql" identity="true"/>
+     	</table> 
+     	<table tableName="account"  domainObjectName="Account" >
+            <generatedKey column="account_id" sqlStatement="MySql" identity="true"/>
+     	</table> 
 	</context>
 </generatorConfiguration>
