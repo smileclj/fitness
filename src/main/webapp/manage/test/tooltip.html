@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../fitness_util/tooltip/tip-yellow/tip-yellow.css" type="text/css" />
+</head>
+<body>
+    <p><a id="demo-basic" title="Hey, there! This is a tooltip." href="#">Hover for a tooltip</a></p>
+    <input title="22222" id="text" type="text">
+    <button onclick="m()">提交</button>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../fitness_util/tooltip/jquery.poshytip.min.js"></script>
+    <script>
+        var m = function(){
+            $('#text').poshytip({
+                content: 'Hey, there! This is a tooltip.',
+                showOn: 'none'
+            });
+            $('#text').poshytip('show');
+        }
+    </script>
+</body>
+</html>
