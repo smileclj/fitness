@@ -18,8 +18,6 @@ public class MapperTest {
 
 	@Test
 	public void userMapperExt(){
-		User user = new User();
-		user.setUserName("小明");
-		userMapperExt.insertSelective(user);
+
 	}
 }

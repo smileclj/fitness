@@ -28,7 +28,7 @@
         <httpcomponents.version>4.5.2</httpcomponents.version>
         <httpasyncclient.version>4.1.2</httpasyncclient.version>
         <quartz.version>2.2.3</quartz.version>
-        <package.environment>snapshot</package.environment>
+        <package.environment>release</package.environment>
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <!--plugin-->
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
@@ -190,6 +190,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
             <version>${spring.version}</version>
         </dependency>
 
