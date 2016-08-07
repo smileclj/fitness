@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="../fitness_util/dialog/jquery-confirm/jquery-confirm.min.css" rel="stylesheet">
+    <link href="../fitness_util/dialog/sweatAlert/sweetalert.css" rel="stylesheet">
+</head>
+<body>
+<button onclick="m()">触发</button>
+<script src="../js/jquery.min.js"></script>
+<script src="../fitness_util/dialog/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="../fitness_util/dialog/sweatAlert/sweetalert.min.js"></script>
+<script>
+    function m() {
+//            $.alert({
+//                title: '提示!',
+//                content: 'Simple alert!'
+//            });
+        swal({
+            title: '提示',
+            type: '1',
+            text: '222'
+        });
+    }
+</script>
+</body>
+</html>

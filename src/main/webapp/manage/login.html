@@ -15,6 +15,8 @@
     <link href="css/login.min.css" rel="stylesheet">
     <!--tooltip-->
     <link href="fitness_util/tooltip/tip-violet/tip-violet.css" rel="stylesheet">
+    <!--dialog-->
+    <link href="fitness_util/dialog/sweatAlert/sweetalert.css" rel="stylesheet">
     <!--[if lt IE 8]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
@@ -36,8 +38,8 @@
                 <form id="login_form">
                     <h4 class="no-margins"><strong>登录：</strong></h4>
                     <p class="m-t-md"><strong>登录到健身管理后台</strong></p>
-                        <input name="username" type="text" class="form-control uname" placeholder="用户名"/>
-                        <input name="password" type="password" class="form-control pword m-b" placeholder="密码"/>
+                        <input id = "accountName" name="accountName" type="text" class="form-control uname" placeholder="用户名"/>
+                        <input id = "password" name="password" type="password" class="form-control pword m-b" placeholder="密码"/>
                         <button id = "login_btn" class="btn btn-success btn-block">登录</button>
                 </form>
             </div>
@@ -56,6 +58,9 @@
     <script src="fitness_util/validate/validate_default.js"></script>
     <script src="fitness_util/validate/messages_zh.min.js"></script>
     <script src="fitness_util/tooltip/jquery.poshytip.min.js"></script>
+    <script src="fitness_util/security/jQuery.md5.js"></script>
+    <script src="fitness_util/dialog/sweatAlert/sweetalert.min.js"></script>
+    <script src="fitness_js/global.js"></script>
     <script src="fitness_js/login.js"></script>
 </body>
 </html>

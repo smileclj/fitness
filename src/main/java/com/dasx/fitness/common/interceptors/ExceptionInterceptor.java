@@ -38,7 +38,7 @@ public class ExceptionInterceptor implements HandlerExceptionResolver {
 					logger.error(sb.toString().substring(0, sb.toString().length() - 1),
 							PrivilegeException.getParamValues());
 				} else {
-					logger.error(e.getMessage(), e);
+					logger.error(e.getMessage());
 				}
 				result.setError(PrivilegeException.getErrorCode());
 			}

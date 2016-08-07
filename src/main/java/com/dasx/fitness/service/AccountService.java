@@ -1,5 +1,7 @@
 package com.dasx.fitness.service;
 
+import com.dasx.fitness.entity.Account;
+
 public interface AccountService {
-	void login(String accountName, String pwd);
+	Account login(String accountName, String pwd);
 }
