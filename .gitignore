@@ -46,6 +46,6 @@ target
 .classpath
 .project
 logs
-*.iml
+.iml
 .idea
 .externalToolBuilders
