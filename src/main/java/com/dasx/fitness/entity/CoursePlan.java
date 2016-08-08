@@ -13,6 +13,8 @@ public class CoursePlan {
 
     private Date effectTime;
 
+    private Integer maxStock;
+
     private Integer stock;
 
     private Date createTime;
@@ -57,6 +59,14 @@ public class CoursePlan {
 
     public void setEffectTime(Date effectTime) {
         this.effectTime = effectTime;
+    }
+
+    public Integer getMaxStock() {
+        return maxStock;
+    }
+
+    public void setMaxStock(Integer maxStock) {
+        this.maxStock = maxStock;
     }
 
     public Integer getStock() {

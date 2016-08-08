@@ -1,48 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dasx.fitness.mapper.UserMapperExt" >
-  <resultMap id="BaseResultMap" type="com.dasx.fitness.entity.User" >
-    <id column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="open_id" property="openId" jdbcType="VARCHAR" />
-    <result column="union_id" property="unionId" jdbcType="VARCHAR" />
-    <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="TINYINT" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="city" property="city" jdbcType="VARCHAR" />
-    <result column="province" property="province" jdbcType="VARCHAR" />
-    <result column="country" property="country" jdbcType="VARCHAR" />
-    <result column="icon" property="icon" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="state" property="state" jdbcType="TINYINT" />
-    <result column="regular_store_id" property="regularStoreId" jdbcType="INTEGER" />
-    <result column="common_time_start" property="commonTimeStart" jdbcType="TIMESTAMP" />
-    <result column="common_time_end" property="commonTimeEnd" jdbcType="TIMESTAMP" />
-    <result column="common_num" property="commonNum" jdbcType="INTEGER" />
-    <result column="crossfit_time_start" property="crossfitTimeStart" jdbcType="TIMESTAMP" />
-    <result column="crossfit_time_end" property="crossfitTimeEnd" jdbcType="TIMESTAMP" />
-    <result column="crossfit_num" property="crossfitNum" jdbcType="INTEGER" />
-    <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dasx.fitness.mapper.UserMapperExt">
+  <resultMap id="BaseResultMap" type="com.dasx.fitness.entity.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="union_id" jdbcType="VARCHAR" property="unionId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="sex" jdbcType="TINYINT" property="sex" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+    <result column="regular_store_id" jdbcType="INTEGER" property="regularStoreId" />
+    <result column="common_time_start" jdbcType="TIMESTAMP" property="commonTimeStart" />
+    <result column="common_time_end" jdbcType="TIMESTAMP" property="commonTimeEnd" />
+    <result column="common_num" jdbcType="INTEGER" property="commonNum" />
+    <result column="crossfit_time_start" jdbcType="TIMESTAMP" property="crossfitTimeStart" />
+    <result column="crossfit_time_end" jdbcType="TIMESTAMP" property="crossfitTimeEnd" />
+    <result column="crossfit_num" jdbcType="INTEGER" property="crossfitNum" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -53,25 +53,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -82,46 +82,46 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     user_id, open_id, union_id, user_name, sex, phone, city, province, country, icon, 
     type, state, regular_store_id, common_time_start, common_time_end, common_num, crossfit_time_start, 
     crossfit_time_end, crossfit_num, login_time, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dasx.fitness.entity.UserExample" >
+  <select id="selectByExample" parameterType="com.dasx.fitness.entity.UserExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
     from user
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-    <if test="limitStart != null and limitStart>=0" >
+    <if test="limitStart != null and limitStart>=0">
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dasx.fitness.entity.UserExample" >
+  <delete id="deleteByExample" parameterType="com.dasx.fitness.entity.UserExample">
     delete from user
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dasx.fitness.entity.User" >
-    <selectKey resultType="java.lang.Integer" keyProperty="userId" order="AFTER" >
+  <insert id="insert" parameterType="com.dasx.fitness.entity.User">
+    <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user (open_id, union_id, user_name, 
@@ -139,214 +139,214 @@
       #{crossfitTimeEnd,jdbcType=TIMESTAMP}, #{crossfitNum,jdbcType=INTEGER}, #{loginTime,jdbcType=TIMESTAMP}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.dasx.fitness.entity.User" >
-    <selectKey resultType="java.lang.Integer" keyProperty="userId" order="AFTER" >
+  <insert id="insertSelective" parameterType="com.dasx.fitness.entity.User">
+    <selectKey keyProperty="userId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="openId != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
         open_id,
       </if>
-      <if test="unionId != null" >
+      <if test="unionId != null">
         union_id,
       </if>
-      <if test="userName != null" >
+      <if test="userName != null">
         user_name,
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         sex,
       </if>
-      <if test="phone != null" >
+      <if test="phone != null">
         phone,
       </if>
-      <if test="city != null" >
+      <if test="city != null">
         city,
       </if>
-      <if test="province != null" >
+      <if test="province != null">
         province,
       </if>
-      <if test="country != null" >
+      <if test="country != null">
         country,
       </if>
-      <if test="icon != null" >
+      <if test="icon != null">
         icon,
       </if>
-      <if test="type != null" >
+      <if test="type != null">
         type,
       </if>
-      <if test="state != null" >
+      <if test="state != null">
         state,
       </if>
-      <if test="regularStoreId != null" >
+      <if test="regularStoreId != null">
         regular_store_id,
       </if>
-      <if test="commonTimeStart != null" >
+      <if test="commonTimeStart != null">
         common_time_start,
       </if>
-      <if test="commonTimeEnd != null" >
+      <if test="commonTimeEnd != null">
         common_time_end,
       </if>
-      <if test="commonNum != null" >
+      <if test="commonNum != null">
         common_num,
       </if>
-      <if test="crossfitTimeStart != null" >
+      <if test="crossfitTimeStart != null">
         crossfit_time_start,
       </if>
-      <if test="crossfitTimeEnd != null" >
+      <if test="crossfitTimeEnd != null">
         crossfit_time_end,
       </if>
-      <if test="crossfitNum != null" >
+      <if test="crossfitNum != null">
         crossfit_num,
       </if>
-      <if test="loginTime != null" >
+      <if test="loginTime != null">
         login_time,
       </if>
-      <if test="createTime != null" >
+      <if test="createTime != null">
         create_time,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="openId != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="openId != null">
         #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="unionId != null" >
+      <if test="unionId != null">
         #{unionId,jdbcType=VARCHAR},
       </if>
-      <if test="userName != null" >
+      <if test="userName != null">
         #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         #{sex,jdbcType=TINYINT},
       </if>
-      <if test="phone != null" >
+      <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="city != null" >
+      <if test="city != null">
         #{city,jdbcType=VARCHAR},
       </if>
-      <if test="province != null" >
+      <if test="province != null">
         #{province,jdbcType=VARCHAR},
       </if>
-      <if test="country != null" >
+      <if test="country != null">
         #{country,jdbcType=VARCHAR},
       </if>
-      <if test="icon != null" >
+      <if test="icon != null">
         #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
+      <if test="type != null">
         #{type,jdbcType=TINYINT},
       </if>
-      <if test="state != null" >
+      <if test="state != null">
         #{state,jdbcType=TINYINT},
       </if>
-      <if test="regularStoreId != null" >
+      <if test="regularStoreId != null">
         #{regularStoreId,jdbcType=INTEGER},
       </if>
-      <if test="commonTimeStart != null" >
+      <if test="commonTimeStart != null">
         #{commonTimeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="commonTimeEnd != null" >
+      <if test="commonTimeEnd != null">
         #{commonTimeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="commonNum != null" >
+      <if test="commonNum != null">
         #{commonNum,jdbcType=INTEGER},
       </if>
-      <if test="crossfitTimeStart != null" >
+      <if test="crossfitTimeStart != null">
         #{crossfitTimeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="crossfitTimeEnd != null" >
+      <if test="crossfitTimeEnd != null">
         #{crossfitTimeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="crossfitNum != null" >
+      <if test="crossfitNum != null">
         #{crossfitNum,jdbcType=INTEGER},
       </if>
-      <if test="loginTime != null" >
+      <if test="loginTime != null">
         #{loginTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createTime != null" >
+      <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dasx.fitness.entity.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dasx.fitness.entity.UserExample" resultType="java.lang.Integer">
     select count(*) from user
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update user
-    <set >
-      <if test="record.userId != null" >
+    <set>
+      <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.openId != null" >
+      <if test="record.openId != null">
         open_id = #{record.openId,jdbcType=VARCHAR},
       </if>
-      <if test="record.unionId != null" >
+      <if test="record.unionId != null">
         union_id = #{record.unionId,jdbcType=VARCHAR},
       </if>
-      <if test="record.userName != null" >
+      <if test="record.userName != null">
         user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
-      <if test="record.sex != null" >
+      <if test="record.sex != null">
         sex = #{record.sex,jdbcType=TINYINT},
       </if>
-      <if test="record.phone != null" >
+      <if test="record.phone != null">
         phone = #{record.phone,jdbcType=VARCHAR},
       </if>
-      <if test="record.city != null" >
+      <if test="record.city != null">
         city = #{record.city,jdbcType=VARCHAR},
       </if>
-      <if test="record.province != null" >
+      <if test="record.province != null">
         province = #{record.province,jdbcType=VARCHAR},
       </if>
-      <if test="record.country != null" >
+      <if test="record.country != null">
         country = #{record.country,jdbcType=VARCHAR},
       </if>
-      <if test="record.icon != null" >
+      <if test="record.icon != null">
         icon = #{record.icon,jdbcType=VARCHAR},
       </if>
-      <if test="record.type != null" >
+      <if test="record.type != null">
         type = #{record.type,jdbcType=TINYINT},
       </if>
-      <if test="record.state != null" >
+      <if test="record.state != null">
         state = #{record.state,jdbcType=TINYINT},
       </if>
-      <if test="record.regularStoreId != null" >
+      <if test="record.regularStoreId != null">
         regular_store_id = #{record.regularStoreId,jdbcType=INTEGER},
       </if>
-      <if test="record.commonTimeStart != null" >
+      <if test="record.commonTimeStart != null">
         common_time_start = #{record.commonTimeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.commonTimeEnd != null" >
+      <if test="record.commonTimeEnd != null">
         common_time_end = #{record.commonTimeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.commonNum != null" >
+      <if test="record.commonNum != null">
         common_num = #{record.commonNum,jdbcType=INTEGER},
       </if>
-      <if test="record.crossfitTimeStart != null" >
+      <if test="record.crossfitTimeStart != null">
         crossfit_time_start = #{record.crossfitTimeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.crossfitTimeEnd != null" >
+      <if test="record.crossfitTimeEnd != null">
         crossfit_time_end = #{record.crossfitTimeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.crossfitNum != null" >
+      <if test="record.crossfitNum != null">
         crossfit_num = #{record.crossfitNum,jdbcType=INTEGER},
       </if>
-      <if test="record.loginTime != null" >
+      <if test="record.loginTime != null">
         login_time = #{record.loginTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.createTime != null" >
+      <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update user
     set user_id = #{record.userId,jdbcType=INTEGER},
       open_id = #{record.openId,jdbcType=VARCHAR},
@@ -369,77 +369,77 @@
       crossfit_num = #{record.crossfitNum,jdbcType=INTEGER},
       login_time = #{record.loginTime,jdbcType=TIMESTAMP},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dasx.fitness.entity.User" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dasx.fitness.entity.User">
     update user
-    <set >
-      <if test="openId != null" >
+    <set>
+      <if test="openId != null">
         open_id = #{openId,jdbcType=VARCHAR},
       </if>
-      <if test="unionId != null" >
+      <if test="unionId != null">
         union_id = #{unionId,jdbcType=VARCHAR},
       </if>
-      <if test="userName != null" >
+      <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="sex != null" >
+      <if test="sex != null">
         sex = #{sex,jdbcType=TINYINT},
       </if>
-      <if test="phone != null" >
+      <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="city != null" >
+      <if test="city != null">
         city = #{city,jdbcType=VARCHAR},
       </if>
-      <if test="province != null" >
+      <if test="province != null">
         province = #{province,jdbcType=VARCHAR},
       </if>
-      <if test="country != null" >
+      <if test="country != null">
         country = #{country,jdbcType=VARCHAR},
       </if>
-      <if test="icon != null" >
+      <if test="icon != null">
         icon = #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="type != null" >
+      <if test="type != null">
         type = #{type,jdbcType=TINYINT},
       </if>
-      <if test="state != null" >
+      <if test="state != null">
         state = #{state,jdbcType=TINYINT},
       </if>
-      <if test="regularStoreId != null" >
+      <if test="regularStoreId != null">
         regular_store_id = #{regularStoreId,jdbcType=INTEGER},
       </if>
-      <if test="commonTimeStart != null" >
+      <if test="commonTimeStart != null">
         common_time_start = #{commonTimeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="commonTimeEnd != null" >
+      <if test="commonTimeEnd != null">
         common_time_end = #{commonTimeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="commonNum != null" >
+      <if test="commonNum != null">
         common_num = #{commonNum,jdbcType=INTEGER},
       </if>
-      <if test="crossfitTimeStart != null" >
+      <if test="crossfitTimeStart != null">
         crossfit_time_start = #{crossfitTimeStart,jdbcType=TIMESTAMP},
       </if>
-      <if test="crossfitTimeEnd != null" >
+      <if test="crossfitTimeEnd != null">
         crossfit_time_end = #{crossfitTimeEnd,jdbcType=TIMESTAMP},
       </if>
-      <if test="crossfitNum != null" >
+      <if test="crossfitNum != null">
         crossfit_num = #{crossfitNum,jdbcType=INTEGER},
       </if>
-      <if test="loginTime != null" >
+      <if test="loginTime != null">
         login_time = #{loginTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createTime != null" >
+      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dasx.fitness.entity.User" >
+  <update id="updateByPrimaryKey" parameterType="com.dasx.fitness.entity.User">
     update user
     set open_id = #{openId,jdbcType=VARCHAR},
       union_id = #{unionId,jdbcType=VARCHAR},

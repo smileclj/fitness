@@ -1,34 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dasx.fitness.mapper.CourseCommentMapperExt" >
-  <resultMap id="BaseResultMap" type="com.dasx.fitness.entity.CourseComment" >
-    <id column="course_comment_id" property="courseCommentId" jdbcType="INTEGER" />
-    <result column="course_id" property="courseId" jdbcType="INTEGER" />
-    <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="star" property="star" jdbcType="DECIMAL" />
-    <result column="train_feel" property="trainFeel" jdbcType="TINYINT" />
-    <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dasx.fitness.mapper.CourseCommentMapperExt">
+  <resultMap id="BaseResultMap" type="com.dasx.fitness.entity.CourseComment">
+    <id column="course_comment_id" jdbcType="INTEGER" property="courseCommentId" />
+    <result column="course_id" jdbcType="INTEGER" property="courseId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="star" jdbcType="DECIMAL" property="star" />
+    <result column="train_feel" jdbcType="TINYINT" property="trainFeel" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -39,25 +39,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -68,44 +68,44 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     course_comment_id, course_id, user_id, star, train_feel, content, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dasx.fitness.entity.CourseCommentExample" >
+  <select id="selectByExample" parameterType="com.dasx.fitness.entity.CourseCommentExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
     from course_comment
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-    <if test="limitStart != null and limitStart>=0" >
+    <if test="limitStart != null and limitStart>=0">
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from course_comment
     where course_comment_id = #{courseCommentId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from course_comment
     where course_comment_id = #{courseCommentId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dasx.fitness.entity.CourseCommentExample" >
+  <delete id="deleteByExample" parameterType="com.dasx.fitness.entity.CourseCommentExample">
     delete from course_comment
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dasx.fitness.entity.CourseComment" >
-    <selectKey resultType="java.lang.Integer" keyProperty="courseCommentId" order="AFTER" >
+  <insert id="insert" parameterType="com.dasx.fitness.entity.CourseComment">
+    <selectKey keyProperty="courseCommentId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into course_comment (course_id, user_id, star, 
@@ -115,88 +115,88 @@
       #{trainFeel,jdbcType=TINYINT}, #{content,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.dasx.fitness.entity.CourseComment" >
-    <selectKey resultType="java.lang.Integer" keyProperty="courseCommentId" order="AFTER" >
+  <insert id="insertSelective" parameterType="com.dasx.fitness.entity.CourseComment">
+    <selectKey keyProperty="courseCommentId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into course_comment
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="courseId != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="courseId != null">
         course_id,
       </if>
-      <if test="userId != null" >
+      <if test="userId != null">
         user_id,
       </if>
-      <if test="star != null" >
+      <if test="star != null">
         star,
       </if>
-      <if test="trainFeel != null" >
+      <if test="trainFeel != null">
         train_feel,
       </if>
-      <if test="content != null" >
+      <if test="content != null">
         content,
       </if>
-      <if test="createTime != null" >
+      <if test="createTime != null">
         create_time,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="courseId != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="courseId != null">
         #{courseId,jdbcType=INTEGER},
       </if>
-      <if test="userId != null" >
+      <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
-      <if test="star != null" >
+      <if test="star != null">
         #{star,jdbcType=DECIMAL},
       </if>
-      <if test="trainFeel != null" >
+      <if test="trainFeel != null">
         #{trainFeel,jdbcType=TINYINT},
       </if>
-      <if test="content != null" >
+      <if test="content != null">
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
+      <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dasx.fitness.entity.CourseCommentExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dasx.fitness.entity.CourseCommentExample" resultType="java.lang.Integer">
     select count(*) from course_comment
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update course_comment
-    <set >
-      <if test="record.courseCommentId != null" >
+    <set>
+      <if test="record.courseCommentId != null">
         course_comment_id = #{record.courseCommentId,jdbcType=INTEGER},
       </if>
-      <if test="record.courseId != null" >
+      <if test="record.courseId != null">
         course_id = #{record.courseId,jdbcType=INTEGER},
       </if>
-      <if test="record.userId != null" >
+      <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=INTEGER},
       </if>
-      <if test="record.star != null" >
+      <if test="record.star != null">
         star = #{record.star,jdbcType=DECIMAL},
       </if>
-      <if test="record.trainFeel != null" >
+      <if test="record.trainFeel != null">
         train_feel = #{record.trainFeel,jdbcType=TINYINT},
       </if>
-      <if test="record.content != null" >
+      <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.createTime != null" >
+      <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update course_comment
     set course_comment_id = #{record.courseCommentId,jdbcType=INTEGER},
       course_id = #{record.courseId,jdbcType=INTEGER},
@@ -205,35 +205,35 @@
       train_feel = #{record.trainFeel,jdbcType=TINYINT},
       content = #{record.content,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dasx.fitness.entity.CourseComment" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dasx.fitness.entity.CourseComment">
     update course_comment
-    <set >
-      <if test="courseId != null" >
+    <set>
+      <if test="courseId != null">
         course_id = #{courseId,jdbcType=INTEGER},
       </if>
-      <if test="userId != null" >
+      <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
       </if>
-      <if test="star != null" >
+      <if test="star != null">
         star = #{star,jdbcType=DECIMAL},
       </if>
-      <if test="trainFeel != null" >
+      <if test="trainFeel != null">
         train_feel = #{trainFeel,jdbcType=TINYINT},
       </if>
-      <if test="content != null" >
+      <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
+      <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where course_comment_id = #{courseCommentId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dasx.fitness.entity.CourseComment" >
+  <update id="updateByPrimaryKey" parameterType="com.dasx.fitness.entity.CourseComment">
     update course_comment
     set course_id = #{courseId,jdbcType=INTEGER},
       user_id = #{userId,jdbcType=INTEGER},

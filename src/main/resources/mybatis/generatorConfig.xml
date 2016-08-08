@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-	<classPathEntry location="D:\work\maven\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+	<classPathEntry location="D:\work_soft\maven_jar\respository\mysql\mysql-connector-java\5.1.28\mysql-connector-java-5.1.28.jar" />
 	
 	<context id="context">
 	 	<plugin type="com.dasx.fitness.common.mybatis.MapperExtGenerateplugin" />   
@@ -13,8 +13,8 @@
 		
 		<!--数据库链接URL，用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/fitness" userId="root"
-			password="123456">
+			connectionURL="jdbc:mysql://121.40.195.133:3306/fitness" userId="root"
+			password="dasx123">
 		</jdbcConnection>
 		
 		<!-- 生成模型的包名和位置 -->
