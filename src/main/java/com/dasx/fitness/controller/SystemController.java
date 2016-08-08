@@ -1,16 +1,17 @@
 package com.dasx.fitness.controller;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.dasx.fitness.common.enums.ErrorCode;
 import com.dasx.fitness.common.exceptions.FitnessException;
 import com.dasx.fitness.common.resp.BaseResp;
 import com.dasx.fitness.common.util.ValidateUtil;
 import com.dasx.fitness.entity.Account;
 import com.dasx.fitness.service.AccountService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by chenlj on 2016/8/7.

@@ -44,6 +44,29 @@ var WeekCourse = function() {
 	    });
 		
 	}
+	 function resize_store_select()
+	    {
+	        var wid = $("#J_branch").width();
+	        wid = (wid + 60) <= 200 ? wid + 80 : 200;
+	        $(".barcity").width(wid);
+	    }
+
+	    function load_baidu_map_info(is_init){
+	        if(is_init){
+	            var jOption = $("#J_branch").find("option:selected"),
+	                lat = jOption.attr("lat"),
+	                lng = jOption.attr("lng"),
+	                addr = jOption.attr("addr");
+	            createMap(lng, lat);
+	        }
+
+	        getDistince();
+	        pageIndex = 1;
+	        $(".course-item").remove();
+	        $(".no-data").remove();
+	        queryCourse();
+	    }
+
     //日期选择事件
 	function initDateSelect(){
 	    $(".calendar-enginue .day-item").on("click", function(){
@@ -62,19 +85,29 @@ var WeekCourse = function() {
 	}
 	
 	function queryCourse(){
+		var courseTime= $(".calendar-enginue .day-item.ce75").attr("data-id");
+		
 		$.ajax({
-			url : 'weekCourse/getCourses',
+			url : 'course/queryCourses.htm',
 			data : {
-			
+				  storeId : $("#J_branch").val(),
+				  courseTime:courseTime
 			},
 			type : 'post',
 			dataType : 'json',
 			success : function(data) {
-			     var html_tmp=_.template($("#course-temp").html(),data);
+				if(data.errcode!=0){
+					alert(data.errmsg);
+					return ;
+				}
+			     var html_tmp=_.template($("#course-temp").html(),data.data);
 		         $("#pullUp").before(html_tmp);
 		         $("#pullUp").hide();
 		         $(".course-item").click(function(e){
-		        	 location.href="schedule-detail.html?id="+ $(this).data('id');
+		        	 if( $(this).data('state')==3|| $(this).data('state')==4){
+		        		 location.href="schedule-detail.html?id="+ $(this).data('id');
+		        	 }
+		        	
 		         })
 		         
 			},
@@ -89,15 +122,20 @@ var WeekCourse = function() {
 	   var city_id_selected = $('#city_id').val();
         var show_cross_fit = $('#show_cross_fit').val();
 		$.ajax({
-			url : 'weekCourse/getHeaderInfo',
+			url : 'course/getStoresInfo.htm',
 			data : {
 				cityId :1,
 			},
 			type : 'post',
 			dataType : 'json',
 			success : function(data) {
-				htmlStoreOpts(data.stores);
-			     var html_tmp=_.template($("#week-temp").html(),data.weeks);
+				if(data.errcode!=0){
+					alert(data.errmsg);
+					return ;
+				}
+				
+				htmlStoreOpts(data.data.stores);
+			     var html_tmp=_.template($("#week-temp").html(),data.data.weeks);
 		         $(".calendar-enginue").html(html_tmp);
 		         initDateSelect();
 		         queryCourse();
@@ -114,10 +152,10 @@ var WeekCourse = function() {
 	        if(stores.length>0){
 	            $(stores).each(function(index, element){
 	                var selected = '';
-	                if(element.id == my_store_id){
+	                if(element.storeId == my_store_id){
 	                    selected = ' selected ';
 	                }
-	                city_list_str += '<option ' + selected + ' value="' + element.id + '" addr="' + element.address + '" lng="' + element.lng + '" lat="'+element.lat +  '">' + element.name + '</option>';
+	                city_list_str += '<option ' + selected + ' value="' + element.storeId + '" lng="' + element.lng + '" lat="'+element.lat +  '">' + element.storeName + '</option>';
 	            });
 	        }else{
 	            var msg = '此城市没有开通的店铺';
@@ -238,7 +276,7 @@ var WeekCourse = function() {
         function Rad(d){
             return d * Math.PI / 180.0;
         }   
-        function GetDistance(lat1,lng1,lat2,lng2){          
+        function GetDistance(lat1,lng1,lat2,lng2){     
             var radLat1 = Rad(lat1);
             var radLat2 = Rad(lat2);
             var a = radLat1 - radLat2;

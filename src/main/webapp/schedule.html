@@ -28,12 +28,24 @@
     </script>  
     <script type="text/template" id="course-temp" >
 	<%_.each(obj, function(item, index) { %>
-    <div class="course-item" data-id="<%=item.id%>" >
+    <div class="course-item" data-id="<%=item.id%>"  data-state="<%=item.state%>" >
     <div class="course-image-block"><a href=""><img src="<%=item.img%>" /></a></div>
     <span class="courseType courseType2"><a class="white" style="color:#2d2d2d" href=""><%=item.name%></a></span>
-    <span class="spaninline" style="block"><a class="white" style="color:#2d2d2d;font-size:14px;" >教练:<%=item.coacheName%></a></span></span>
-    <span class="time"><a class="" style="color:#e25050" ><%=item.startTime%>-<%=item.endTime%></a>
-	<span class="oprate"><a class="J_order ce25050" >预约</a></span>
+    <span class="spaninline" style="block"><a class="white" style="color:#2d2d2d;font-size:14px;" >教练:<%=item.coachName%></a></span></span>
+    <span class="time"><a class="" style="color:#e25050" ><%=item.startTimeStr%>-<%=item.endTimeStr%></a>
+<% if (item.state==2||item.state==-1){%>
+	<span class="oprate"><a class="J_order forbid" style="background-color:#989898; color:#fff; width: 100px;" href="javascript:void(0);"><%=item.stateStr%></a>
+<% } %>
+<% if (item.state==1){%>
+<span class="oprate oprate_pai"><a class="J_queuing">已排队</a>
+<% } %>
+<% if (item.state==4){%>
+<span class="oprate oprate_pai"><a class="J_queuing">排队</a>
+<% } %>
+<% if (item.state==3){%>
+<span class="oprate"><a class="J_order ce25050">预约</a>
+<% } %>
+</span>
 	</div>
     <%})%>
     </script>
@@ -101,12 +113,12 @@ div .courec_wp {
 	<script src="static/js/jquery.min.js"></script>
 	<script src="static/js/global.js"></script>
 	<script src="static/js/iscroll.js"></script>
-	<script src="static/js/underscore.js"></script>>
+	<script src="static/js/underscore.js"></script>
 	<script type="text/javascript"
 		src="http://api.map.baidu.com/api?v=2.0&ak=D1c84e7ced620bb2e3651144955ccce3"></script>
 	<script type="text/javascript">
     </script>
-	<script src="static/js/week-course.js"></script>
+	<script src="static/js/course.js"></script>
 	<script>
 	function openDiv(){
 		$('.open_map').animate({'top':'0'},500);

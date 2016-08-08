@@ -136,7 +136,12 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-
+	<!-- JAXB xml解析工具类-->
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>org.eclipse.persistence.moxy</artifactId>
+			<version>2.6.0</version>
+		</dependency>
         <!-- Spring Start -->
         <dependency>
             <groupId>org.springframework</groupId>
