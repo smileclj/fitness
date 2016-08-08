@@ -1,4 +1,4 @@
-package com.dasx.fitness.controller;
+package com.dasx.fitness.controller.manage;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
