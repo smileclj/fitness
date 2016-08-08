@@ -1,3 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dasx.fitness.mapper.CourseMapperExt" />
+<mapper namespace="com.dasx.fitness.mapper.CourseMapperExt">
+  <resultMap id="courseResultMap" type="com.dasx.fitness.dto.course.Course" >
+    <id column="course_id" property="id" jdbcType="INTEGER" />
+    <result column="course_name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="TINYINT" />
+    <result column="coach_name" property="coachName" jdbcType="VARCHAR" />
+    <result column="classroom" property="classroom" jdbcType="VARCHAR" />
+    <result column="logo" property="img" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+     <result column="state" property="state" jdbcType="INTEGER" />
+      <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+      <result column="stock" property="stock" jdbcType="INTEGER" />
+      <result column="max_stock" property="maxStock" jdbcType="INTEGER" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="queryCourse" resultMap="courseResultMap">
+		select  cp.user_id,cp.state, ch.coach_name, c.course_id, c.course_name, c.type, c.coach_id, c.classroom,  c.logo  ,p.start_time,p.end_time,p.stock,p.max_stock
+		FROM store t LEFT JOIN course  c 	on  t.store_id = c.store_id
+		RIGHT JOIN course_plan p ON p.course_id = c.course_id AND p.start_time &gt; #{startTime, jdbcType=TIMESTAMP} and  p.start_time &lt; #{endTime, jdbcType=TIMESTAMP}
+		LEFT JOIN coach ch  ON ch.coach_id = c.coach_id
+		LEFT JOIN user_course_plan cp ON cp.course_plan_id = p.course_plan_id
+		WHERE  t.store_id =#{storeId, jdbcType=BIGINT} 
+  </select>
+</mapper>
