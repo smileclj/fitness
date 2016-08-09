@@ -12,4 +12,6 @@ public interface CourseService {
 	public List<Course> queryCourse(Integer storeId,String coursrTime);
 	
 	public JSONObject getStoreInfo(Integer cityId);
+	
+	public Course getCourseInfo(Integer courseId);
 }

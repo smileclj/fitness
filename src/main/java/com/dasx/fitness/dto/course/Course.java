@@ -39,6 +39,10 @@ public class Course {
 	
 	private Integer userId;
 	
+	private  Integer trainLevel;
+	
+	private String remark;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -167,5 +171,21 @@ public class Course {
 
 	public void setMaxStock(Integer maxStock) {
 		this.maxStock = maxStock;
+	}
+
+	public Integer getTrainLevel() {
+		return trainLevel;
+	}
+
+	public void setTrainLevel(Integer trainLevel) {
+		this.trainLevel = trainLevel;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 }

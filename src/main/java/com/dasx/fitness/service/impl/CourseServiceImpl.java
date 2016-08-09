@@ -14,9 +14,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.dasx.fitness.common.util.DateUtil;
 import com.dasx.fitness.common.util.DateUtil.DateInfo;
 import com.dasx.fitness.dto.course.Course;
+import com.dasx.fitness.entity.CoursePlan;
 import com.dasx.fitness.entity.Store;
 import com.dasx.fitness.entity.UserCoursePlan;
 import com.dasx.fitness.mapper.CourseMapperExt;
+import com.dasx.fitness.mapper.CoursePlanMapperExt;
 import com.dasx.fitness.mapper.StoreMapperExt;
 import com.dasx.fitness.service.CourseService;
 @Service
@@ -28,6 +30,8 @@ public class CourseServiceImpl implements  CourseService {
 	private CourseMapperExt courseMapperExt;
 	@Autowired
 	private StoreMapperExt storeMapperExt;
+	@Autowired
+	private CoursePlanMapperExt coursePlanMapperExt;
 	
 	@Override
 	public List<Course> queryCourse(Integer storeId, String coursrTime) {
@@ -88,6 +92,25 @@ public class CourseServiceImpl implements  CourseService {
 		JSONArray array=new JSONArray();
 		array.add(json);
 		return array;
+	}
+
+	@Override
+	public Course getCourseInfo(Integer courseplanId) {
+		CoursePlan coursePlan=coursePlanMapperExt.selectByPrimaryKey(courseplanId);
+		com.dasx.fitness.entity.Course course=courseMapperExt.selectByPrimaryKey(coursePlan.getCourseId());
+		Course courseDTO=new Course();
+		courseDTO.setCourseName(course.getCourseName());
+		courseDTO.setClassroom(course.getClassroom());
+		courseDTO.setStartTimeStr(DateUtil.getDateTimeString(coursePlan.getStartTime()));
+		courseDTO.setEndTimeStr(DateUtil.getDateTimeString(coursePlan.getEndTime()));
+		courseDTO.setTrainLevel(course.getTrainLevel());
+		if(coursePlan.getMaxStock()-coursePlan.getStock()>0){
+			courseDTO.setState(UserCoursePlan.STATE_CAN_ORDER);
+		}else{
+			courseDTO.setState(UserCoursePlan.STATE_CAN_QUEUE);
+		}
+		courseDTO.setRemark(course.getRemark());
+		return null;
 	}
 	
 	
