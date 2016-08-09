@@ -31,7 +31,7 @@ public class CourseController extends BaseController {
 
     @RequestMapping(value = "queryCourses")
     public BaseResp queryCourses(HttpServletRequest request,
-                                 HttpServletResponse response, Integer areaId, Integer storeId, String courseTime) throws IOException {
+                                 HttpServletResponse response,Integer storeId, String courseTime) throws IOException {
         if (storeId == null || StringUtil.isEmpty(courseTime)) {
             throw new FitnessException(ErrorCode.ERROR_PARAM);
         }
@@ -40,9 +40,10 @@ public class CourseController extends BaseController {
 
     }
 
+    
     @RequestMapping(value = "getStoresInfo")
     public BaseResp getStoresInfo(HttpServletRequest request,
                                   HttpServletResponse response, Integer cityId) throws IOException {
-        return succeed(courseService.getStoreInfo(1));
+        return succeed(courseService.getStoreInfo(cityId));
     }
 }
