@@ -1,36 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dasx.fitness.mapper.CardMapperExt" >
-  <resultMap id="BaseResultMap" type="com.dasx.fitness.entity.Card" >
-    <id column="card_id" property="cardId" jdbcType="INTEGER" />
-    <result column="card_name" property="cardName" jdbcType="VARCHAR" />
-    <result column="logo" property="logo" jdbcType="VARCHAR" />
-    <result column="remark" property="remark" jdbcType="VARCHAR" />
-    <result column="price" property="price" jdbcType="DECIMAL" />
-    <result column="bill_method" property="billMethod" jdbcType="TINYINT" />
-    <result column="bill_number" property="billNumber" jdbcType="INTEGER" />
-    <result column="type" property="type" jdbcType="TINYINT" />
-    <result column="id_delete" property="idDelete" jdbcType="TINYINT" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dasx.fitness.mapper.CardMapperExt">
+  <resultMap id="BaseResultMap" type="com.dasx.fitness.entity.Card">
+    <id column="card_id" jdbcType="INTEGER" property="cardId" />
+    <result column="card_name" jdbcType="VARCHAR" property="cardName" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="bill_method" jdbcType="TINYINT" property="billMethod" />
+    <result column="bill_number" jdbcType="INTEGER" property="billNumber" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="id_delete" jdbcType="TINYINT" property="idDelete" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -41,25 +41,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -70,44 +70,44 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
+  <sql id="Base_Column_List">
     card_id, card_name, logo, remark, price, bill_method, bill_number, type, id_delete
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dasx.fitness.entity.CardExample" >
+  <select id="selectByExample" parameterType="com.dasx.fitness.entity.CardExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
     from card
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
-    <if test="limitStart != null and limitStart>=0" >
+    <if test="limitStart != null and limitStart>=0">
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from card
     where card_id = #{cardId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from card
     where card_id = #{cardId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dasx.fitness.entity.CardExample" >
+  <delete id="deleteByExample" parameterType="com.dasx.fitness.entity.CardExample">
     delete from card
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dasx.fitness.entity.Card" >
-    <selectKey resultType="java.lang.Integer" keyProperty="cardId" order="AFTER" >
+  <insert id="insert" parameterType="com.dasx.fitness.entity.Card">
+    <selectKey keyProperty="cardId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into card (card_name, logo, remark, 
@@ -117,106 +117,106 @@
       #{price,jdbcType=DECIMAL}, #{billMethod,jdbcType=TINYINT}, #{billNumber,jdbcType=INTEGER}, 
       #{type,jdbcType=TINYINT}, #{idDelete,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.dasx.fitness.entity.Card" >
-    <selectKey resultType="java.lang.Integer" keyProperty="cardId" order="AFTER" >
+  <insert id="insertSelective" parameterType="com.dasx.fitness.entity.Card">
+    <selectKey keyProperty="cardId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into card
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="cardName != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardName != null">
         card_name,
       </if>
-      <if test="logo != null" >
+      <if test="logo != null">
         logo,
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         remark,
       </if>
-      <if test="price != null" >
+      <if test="price != null">
         price,
       </if>
-      <if test="billMethod != null" >
+      <if test="billMethod != null">
         bill_method,
       </if>
-      <if test="billNumber != null" >
+      <if test="billNumber != null">
         bill_number,
       </if>
-      <if test="type != null" >
+      <if test="type != null">
         type,
       </if>
-      <if test="idDelete != null" >
+      <if test="idDelete != null">
         id_delete,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="cardName != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardName != null">
         #{cardName,jdbcType=VARCHAR},
       </if>
-      <if test="logo != null" >
+      <if test="logo != null">
         #{logo,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="price != null" >
+      <if test="price != null">
         #{price,jdbcType=DECIMAL},
       </if>
-      <if test="billMethod != null" >
+      <if test="billMethod != null">
         #{billMethod,jdbcType=TINYINT},
       </if>
-      <if test="billNumber != null" >
+      <if test="billNumber != null">
         #{billNumber,jdbcType=INTEGER},
       </if>
-      <if test="type != null" >
+      <if test="type != null">
         #{type,jdbcType=TINYINT},
       </if>
-      <if test="idDelete != null" >
+      <if test="idDelete != null">
         #{idDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dasx.fitness.entity.CardExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.dasx.fitness.entity.CardExample" resultType="java.lang.Integer">
     select count(*) from card
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update card
-    <set >
-      <if test="record.cardId != null" >
+    <set>
+      <if test="record.cardId != null">
         card_id = #{record.cardId,jdbcType=INTEGER},
       </if>
-      <if test="record.cardName != null" >
+      <if test="record.cardName != null">
         card_name = #{record.cardName,jdbcType=VARCHAR},
       </if>
-      <if test="record.logo != null" >
+      <if test="record.logo != null">
         logo = #{record.logo,jdbcType=VARCHAR},
       </if>
-      <if test="record.remark != null" >
+      <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
-      <if test="record.price != null" >
+      <if test="record.price != null">
         price = #{record.price,jdbcType=DECIMAL},
       </if>
-      <if test="record.billMethod != null" >
+      <if test="record.billMethod != null">
         bill_method = #{record.billMethod,jdbcType=TINYINT},
       </if>
-      <if test="record.billNumber != null" >
+      <if test="record.billNumber != null">
         bill_number = #{record.billNumber,jdbcType=INTEGER},
       </if>
-      <if test="record.type != null" >
+      <if test="record.type != null">
         type = #{record.type,jdbcType=TINYINT},
       </if>
-      <if test="record.idDelete != null" >
+      <if test="record.idDelete != null">
         id_delete = #{record.idDelete,jdbcType=TINYINT},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update card
     set card_id = #{record.cardId,jdbcType=INTEGER},
       card_name = #{record.cardName,jdbcType=VARCHAR},
@@ -227,41 +227,41 @@
       bill_number = #{record.billNumber,jdbcType=INTEGER},
       type = #{record.type,jdbcType=TINYINT},
       id_delete = #{record.idDelete,jdbcType=TINYINT}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dasx.fitness.entity.Card" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.dasx.fitness.entity.Card">
     update card
-    <set >
-      <if test="cardName != null" >
+    <set>
+      <if test="cardName != null">
         card_name = #{cardName,jdbcType=VARCHAR},
       </if>
-      <if test="logo != null" >
+      <if test="logo != null">
         logo = #{logo,jdbcType=VARCHAR},
       </if>
-      <if test="remark != null" >
+      <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="price != null" >
+      <if test="price != null">
         price = #{price,jdbcType=DECIMAL},
       </if>
-      <if test="billMethod != null" >
+      <if test="billMethod != null">
         bill_method = #{billMethod,jdbcType=TINYINT},
       </if>
-      <if test="billNumber != null" >
+      <if test="billNumber != null">
         bill_number = #{billNumber,jdbcType=INTEGER},
       </if>
-      <if test="type != null" >
+      <if test="type != null">
         type = #{type,jdbcType=TINYINT},
       </if>
-      <if test="idDelete != null" >
+      <if test="idDelete != null">
         id_delete = #{idDelete,jdbcType=TINYINT},
       </if>
     </set>
     where card_id = #{cardId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dasx.fitness.entity.Card" >
+  <update id="updateByPrimaryKey" parameterType="com.dasx.fitness.entity.Card">
     update card
     set card_name = #{cardName,jdbcType=VARCHAR},
       logo = #{logo,jdbcType=VARCHAR},

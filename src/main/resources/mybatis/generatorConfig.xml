@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration>
-	<classPathEntry location="D:\work\maven\repository\mysql\mysql-connector-java\5.1.38\mysql-connector-java-5.1.38.jar" />
+	<classPathEntry location="D:\libs\Repositories\Maven\mysql\mysql-connector-java\5.1.28\mysql-connector-java-5.1.28.jar" />
 	
 	<context id="context">
 	 	<plugin type="com.dasx.fitness.common.mybatis.MapperExtGenerateplugin" />   
@@ -13,10 +13,11 @@
 		
 		<!--数据库链接URL，用户名、密码 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/fitness" userId="root"
-			password="123456">
+			connectionURL="jdbc:mysql://121.40.195.133:3306/fitness" userId="root"
+			password="dasx123">
 		</jdbcConnection>
-		
+
+		<!--eclipse下去掉fitness-->
 		<!-- 生成模型的包名和位置 -->
 		<javaModelGenerator targetPackage="com.dasx.fitness.entity" targetProject="src/main/java" />
 
@@ -27,38 +28,41 @@
 		<javaClientGenerator targetPackage="com.dasx.fitness.mapper" targetProject="src/main/java" type="XMLMAPPER" />
 
 		<!-- 要生成哪些表 -->
-		<table tableName="user"  domainObjectName="User" >
-            <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
-     	</table>
-     	<table tableName="store"  domainObjectName="Store" >
-            <generatedKey column="store_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="course"  domainObjectName="Course" >
-            <generatedKey column="course_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="coach"  domainObjectName="Coach" >
-            <generatedKey column="coach_id" sqlStatement="MySql" identity="true"/>
-     	</table> 	
-     	<table tableName="coach_item"  domainObjectName="CoachItem" >
-            <generatedKey column="coach_item_id" sqlStatement="MySql" identity="true"/>
-     	</table> 	
-     	<table tableName="course_plan"  domainObjectName="CoursePlan" >
-            <generatedKey column="course_plan_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="course_comment"  domainObjectName="CourseComment" >
-            <generatedKey column="course_comment_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="coach_comment"  domainObjectName="CoachComment" >
-            <generatedKey column="coach_comment_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="card"  domainObjectName="Card" >
-            <generatedKey column="card_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="card_record"  domainObjectName="CardRecord" >
-            <generatedKey column="card_record_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
-     	<table tableName="account"  domainObjectName="Account" >
+		<!--<table tableName="user"  domainObjectName="User" >-->
+            <!--<generatedKey column="user_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table>-->
+     	<!--<table tableName="store"  domainObjectName="Store" >-->
+            <!--<generatedKey column="store_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     	<!--<table tableName="course"  domainObjectName="Course" >-->
+            <!--<generatedKey column="course_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     	<!--<table tableName="coach"  domainObjectName="Coach" >-->
+            <!--<generatedKey column="coach_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> 	-->
+     	<!--<table tableName="coach_item"  domainObjectName="CoachItem" >-->
+            <!--<generatedKey column="coach_item_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> 	-->
+     	<!--<table tableName="course_plan"  domainObjectName="CoursePlan" >-->
+            <!--<generatedKey column="course_plan_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     	<!--<table tableName="course_comment"  domainObjectName="CourseComment" >-->
+            <!--<generatedKey column="course_comment_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     	<!--<table tableName="coach_comment"  domainObjectName="CoachComment" >-->
+            <!--<generatedKey column="coach_comment_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     	<!--<table tableName="card"  domainObjectName="Card" >-->
+            <!--<generatedKey column="card_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     	<!--<table tableName="card_record"  domainObjectName="CardRecord" >-->
+            <!--<generatedKey column="card_record_id" sqlStatement="MySql" identity="true"/>-->
+     	<!--</table> -->
+     <!-- 	<table tableName="account"  domainObjectName="Account" >
             <generatedKey column="account_id" sqlStatement="MySql" identity="true"/>
-     	</table> 
+     	</table>  -->
+     	<table tableName="user_course_plan"  domainObjectName="UserCoursePLan" >
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+     	</table>
 	</context>
 </generatorConfiguration>

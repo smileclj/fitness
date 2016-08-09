@@ -21,15 +21,15 @@ public class Store {
 
     private String logo;
 
-    private Integer province;
-
-    private Integer city;
+    private Integer area;
 
     private Date createTime;
 
     private Date updateTime;
 
     private Byte isDelete;
+
+    private String address;
 
     public Integer getStoreId() {
         return storeId;
@@ -103,20 +103,12 @@ public class Store {
         this.logo = logo;
     }
 
-    public Integer getProvince() {
-        return province;
+    public Integer getArea() {
+        return area;
     }
 
-    public void setProvince(Integer province) {
-        this.province = province;
-    }
-
-    public Integer getCity() {
-        return city;
-    }
-
-    public void setCity(Integer city) {
-        this.city = city;
+    public void setArea(Integer area) {
+        this.area = area;
     }
 
     public Date getCreateTime() {
@@ -141,5 +133,13 @@ public class Store {
 
     public void setIsDelete(Byte isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

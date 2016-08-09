@@ -425,6 +425,66 @@ public class CoursePlanExample {
             return (Criteria) this;
         }
 
+        public Criteria andMaxStockIsNull() {
+            addCriterion("max_stock is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockIsNotNull() {
+            addCriterion("max_stock is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockEqualTo(Integer value) {
+            addCriterion("max_stock =", value, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockNotEqualTo(Integer value) {
+            addCriterion("max_stock <>", value, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockGreaterThan(Integer value) {
+            addCriterion("max_stock >", value, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockGreaterThanOrEqualTo(Integer value) {
+            addCriterion("max_stock >=", value, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockLessThan(Integer value) {
+            addCriterion("max_stock <", value, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockLessThanOrEqualTo(Integer value) {
+            addCriterion("max_stock <=", value, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockIn(List<Integer> values) {
+            addCriterion("max_stock in", values, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockNotIn(List<Integer> values) {
+            addCriterion("max_stock not in", values, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockBetween(Integer value1, Integer value2) {
+            addCriterion("max_stock between", value1, value2, "maxStock");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxStockNotBetween(Integer value1, Integer value2) {
+            addCriterion("max_stock not between", value1, value2, "maxStock");
+            return (Criteria) this;
+        }
+
         public Criteria andStockIsNull() {
             addCriterion("stock is null");
             return (Criteria) this;
