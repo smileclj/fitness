@@ -6,7 +6,7 @@ public class Comment {
 	
 	private Integer id;
 	
-	private Integer userId;
+	private String userName;
 	
 	private  String context;
 	
@@ -21,13 +21,12 @@ public class Comment {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public Integer getUserId() {
-		return userId;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getContext() {

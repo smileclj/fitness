@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dasx.fitness.mapper.CourseCommentMapperExt" />
+<mapper namespace="com.dasx.fitness.mapper.CourseCommentMapperExt" >
+	<resultMap id="commentMap" type="com.dasx.fitness.dto.comment.CourseComment">
+		<id column="id" jdbcType="INTEGER" property="courseCommentId" />
+		<result column="course_id" jdbcType="INTEGER" property="courseId" />
+		<result column="user_name" jdbcType="INTEGER" property="userName" />
+		<result column="star" jdbcType="DECIMAL" property="star" />
+		<result column="train_feel" jdbcType="TINYINT" property="trainFeel" />
+		<result column="content" jdbcType="VARCHAR" property="content" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+	</resultMap>
+	<select id="queryByAreaId" resultMap="BaseResultMap">
+ select u.user_name,cc.course_id , cc.star star, cc.train_feel,cc.content ,cc.create_time  from course_comment  cc,user u where  and cc.user_id=u.user_id  and cc.course_id= #{courseId ,jdbcType=BIGINT} order by cc.create_time desc;
+	</select>
+</mapper>

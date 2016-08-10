@@ -13,10 +13,12 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dasx.fitness.common.util.DateUtil;
 import com.dasx.fitness.common.util.DateUtil.DateInfo;
+import com.dasx.fitness.dto.comment.CourseComment;
 import com.dasx.fitness.dto.course.Course;
 import com.dasx.fitness.entity.CoursePlan;
 import com.dasx.fitness.entity.Store;
 import com.dasx.fitness.entity.UserCoursePlan;
+import com.dasx.fitness.mapper.CourseCommentMapperExt;
 import com.dasx.fitness.mapper.CourseMapperExt;
 import com.dasx.fitness.mapper.CoursePlanMapperExt;
 import com.dasx.fitness.mapper.StoreMapperExt;
@@ -32,6 +34,8 @@ public class CourseServiceImpl implements  CourseService {
 	private StoreMapperExt storeMapperExt;
 	@Autowired
 	private CoursePlanMapperExt coursePlanMapperExt;
+	@Autowired
+	private CourseCommentMapperExt	courseCommentMapperExt;
 	
 	@Override
 	public List<Course> queryCourse(Integer storeId, String coursrTime) {
@@ -110,6 +114,7 @@ public class CourseServiceImpl implements  CourseService {
 			courseDTO.setState(UserCoursePlan.STATE_CAN_QUEUE);
 		}
 		courseDTO.setRemark(course.getRemark());
+		List<CourseComment>  comments=courseCommentMapperExt.queryCourseComments(coursePlan.getCourseId());
 		return null;
 	}
 	
