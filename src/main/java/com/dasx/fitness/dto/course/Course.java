@@ -1,8 +1,10 @@
 package com.dasx.fitness.dto.course;
 
 import java.util.Date;
+import java.util.List;
 
 import com.dasx.fitness.common.util.DateUtil;
+import com.dasx.fitness.dto.comment.CourseComment;
 
 
 public class Course {
@@ -38,6 +40,12 @@ public class Course {
 	private Integer type;
 	
 	private Integer userId;
+	
+	private  Integer trainLevel;
+	
+	private String remark;
+	
+	private List<CourseComment> courseComment;
 	
 	public Integer getId() {
 		return id;
@@ -167,5 +175,29 @@ public class Course {
 
 	public void setMaxStock(Integer maxStock) {
 		this.maxStock = maxStock;
+	}
+
+	public Integer getTrainLevel() {
+		return trainLevel;
+	}
+
+	public void setTrainLevel(Integer trainLevel) {
+		this.trainLevel = trainLevel;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	public List<CourseComment> getCourseComment() {
+		return courseComment;
+	}
+
+	public void setCourseComment(List<CourseComment> courseComment) {
+		this.courseComment = courseComment;
 	}
 }

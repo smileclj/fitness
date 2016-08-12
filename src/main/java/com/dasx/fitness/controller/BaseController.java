@@ -5,16 +5,16 @@ import com.dasx.fitness.common.resp.BaseResp;
 
 public class BaseController {
 	
-	public static BaseResp<Integer> succeed(Object returnData) {
+	public static <T>BaseResp<T> succeed(T returnData) {
 		return getResponseData(ErrorCode.SUCCESS, returnData);
 	}
     
-	public static BaseResp<Integer> failed(ErrorCode errcode) {
+	public static <T>BaseResp<T> failed(ErrorCode errcode) {
 		return getResponseData(errcode, null);
 	}
 	
-	private static BaseResp<Integer> getResponseData(ErrorCode errcode, Object data) {
-		BaseResp obj = new BaseResp();
+	private static <T>BaseResp<T> getResponseData(ErrorCode errcode, T data) {
+		BaseResp<T> obj = new BaseResp<T>();
 		obj.setData(data);
 		obj.setError(errcode);
 		return obj;
