@@ -48,4 +48,4 @@ target
 logs
 .idea
 .externalToolBuilders
-/*.iml
+*.iml
